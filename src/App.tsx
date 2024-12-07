@@ -4,6 +4,7 @@ import { retrieveLaunchParams, openPopup, isMiniAppSupported, isMiniAppMounted }
 function App() {
   const [username, setUsername] = useState("")
   const [firstName, setFirstName] = useState("")
+  const [photoUrl, setPhotoUrl] = useState("")
 
   useEffect(
     () => {
@@ -11,6 +12,7 @@ function App() {
       const params = retrieveLaunchParams()
       setUsername(params.initData?.user?.username || "not found")
       setFirstName(params.initData?.user?.firstName || "not found")
+      setPhotoUrl(params.initData?.user?.photoUrl || "not found")
     }, []
   )
 
@@ -29,6 +31,18 @@ function App() {
       </button>
       <p>first name : {firstName}</p>
       <p>username : {username}</p>
+
+      <img
+        alt=""
+        src={photoUrl}
+        style={{
+          width: "200px",
+          height: "200px",
+          border: "1px solid red",
+          marginTop: "4px",
+          marginLeft: "4px"
+        }}
+      />
     </div>
   )
 }
