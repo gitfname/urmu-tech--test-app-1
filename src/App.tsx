@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { retrieveLaunchParams, setMiniAppHeaderColor, BottomBarColor, openPopup } from "@telegram-apps/sdk"
+import { retrieveLaunchParams,  openPopup } from "@telegram-apps/sdk"
 
 function App() {
   const [isMiniApp, _] = useState(false)
