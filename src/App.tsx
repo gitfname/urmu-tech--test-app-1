@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { retrieveLaunchParams, openPopup, isMiniAppSupported, isMiniAppMounted, openLink } from "@telegram-apps/sdk"
+import { retrieveLaunchParams, openPopup, isMiniAppSupported, isMiniAppMounted, openTelegramLink } from "@telegram-apps/sdk"
 
 function App() {
   const [username, setUsername] = useState("")
@@ -27,10 +27,7 @@ function App() {
   }
 
   const handleOpenLink = () => {
-    openLink("https://jahanzar.com", {
-      tryBrowser: "edge",
-      tryInstantView: true
-    })
+    openTelegramLink("https://t.me/arash_zarandi")
   }
 
   return (
