@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { retrieveLaunchParams, openPopup, isMiniAppSupported, isMiniAppMounted } from "@telegram-apps/sdk"
+import { retrieveLaunchParams, openPopup, isMiniAppSupported, isMiniAppMounted, openLink } from "@telegram-apps/sdk"
 
 function App() {
   const [username, setUsername] = useState("")
@@ -26,6 +26,13 @@ function App() {
     })
   }
 
+  const handleOpenLink = () => {
+    openLink("https://jahanzar.com", {
+      tryBrowser: "edge",
+      tryInstantView: true
+    })
+  }
+
   return (
     <div style={{ color: "white" }}>
       <div>App - 4</div>
@@ -46,6 +53,10 @@ function App() {
           marginLeft: "4px"
         }}
       />
+
+      <button onClick={handleOpenLink}>
+        open jahanzar
+      </button>
     </div>
   )
 }
