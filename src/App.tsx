@@ -1,36 +1,28 @@
-import { useEffect, useState } from "react"
-import { retrieveLaunchParams, openPopup, init } from "@telegram-apps/sdk"
+import { useEffect } from "react"
+import { retrieveLaunchParams, openPopup, isMiniAppSupported, isMiniAppMounted } from "@telegram-apps/sdk"
 
 function App() {
-  const [isMiniApp, _] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(
     () => {
-      init()
-      
-      setTimeout(() => {
-        console.log("hello world")
-        console.log("retrieve params : ", retrieveLaunchParams)
-
-        // setMiniAppHeaderColor("")
-        console.log("openPopup", openPopup)
-
-        openPopup?.({
-          title: "hello world",
-          message: "hello world and all guys"
-        })
-
-        setIsLoading(false)
-      }, 5000);
+      console.log("is mounted : ", isMiniAppMounted(), "is supported :", isMiniAppSupported())
+      console.log(retrieveLaunchParams())
     }, []
   )
 
+  const handleOpenPopup = () => {
+    openPopup({
+      title: "the title",
+      message: "hello world"
+    })
+  }
+
   return (
     <div style={{ color: "white" }}>
-      <div>App - 3</div>
-      <p>is loading : {isLoading + ""}</p>
-      <p>is mini app : {isMiniApp + ""}</p>
+      <div>App - 4</div>
+      <button onClick={handleOpenPopup}>
+        open the popup
+      </button>
     </div>
   )
 }
