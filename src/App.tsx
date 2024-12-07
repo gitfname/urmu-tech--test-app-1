@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { retrieveLaunchParams,  openPopup } from "@telegram-apps/sdk"
+import { retrieveLaunchParams, openPopup, init } from "@telegram-apps/sdk"
 
 function App() {
   const [isMiniApp, _] = useState(false)
@@ -7,13 +7,15 @@ function App() {
 
   useEffect(
     () => {
+      init()
+      
       setTimeout(() => {
         console.log("hello world")
         console.log("retrieve params : ", retrieveLaunchParams)
 
         // setMiniAppHeaderColor("")
         console.log("openPopup", openPopup)
-        
+
         openPopup?.({
           title: "hello world",
           message: "hello world and all guys"
