@@ -1,12 +1,16 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { retrieveLaunchParams, openPopup, isMiniAppSupported, isMiniAppMounted } from "@telegram-apps/sdk"
 
 function App() {
+  const [username, setUsername] = useState("")
+  const [firstName, setFirstName] = useState("")
 
   useEffect(
     () => {
       console.log("is mounted : ", isMiniAppMounted(), "is supported :", isMiniAppSupported())
-      console.log(retrieveLaunchParams())
+      const params = retrieveLaunchParams()
+      setUsername(params.initData?.user?.username || "not found")
+      setFirstName(params.initData?.user?.firstName || "not found")
     }, []
   )
 
@@ -23,6 +27,8 @@ function App() {
       <button onClick={handleOpenPopup}>
         open the popup
       </button>
+      <p>first name : {firstName}</p>
+      <p>username : {username}</p>
     </div>
   )
 }
