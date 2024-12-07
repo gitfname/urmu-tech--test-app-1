@@ -19,7 +19,7 @@ function App() {
   )
 
   return (
-    <div>App</div>
+    <div>App - 2</div>
   )
 }
 
