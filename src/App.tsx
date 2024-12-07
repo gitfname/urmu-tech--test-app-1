@@ -13,6 +13,9 @@ function App() {
       setUsername(params.initData?.user?.username || "not found")
       setFirstName(params.initData?.user?.firstName || "not found")
       setPhotoUrl(params.initData?.user?.photoUrl || "not found")
+
+      console.log("user :", params.initData?.user)
+
     }, []
   )
 
