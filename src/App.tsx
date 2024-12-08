@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { retrieveLaunchParams, openPopup, isMiniAppSupported, isMiniAppMounted, openTelegramLink, initDataUser, initData } from "@telegram-apps/sdk"
+import { retrieveLaunchParams, openPopup, isMiniAppSupported, isMiniAppMounted, openTelegramLink, initDataUser, initData, initDataChat } from "@telegram-apps/sdk"
 import { useLaunchParams } from "@telegram-apps/sdk-react"
 
 function App() {
@@ -29,6 +29,8 @@ function App() {
       console.log("iniDataUSer :", initDataUser())
 
       console.log("initData.user()", initData.user())
+
+      console.log("initDataChat()", initDataChat())
 
     }, []
   )
