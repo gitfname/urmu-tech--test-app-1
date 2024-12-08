@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { retrieveLaunchParams, openPopup, isMiniAppSupported, isMiniAppMounted, openTelegramLink, initDataUser } from "@telegram-apps/sdk"
+import { retrieveLaunchParams, openPopup, isMiniAppSupported, isMiniAppMounted, openTelegramLink, initDataUser, initData } from "@telegram-apps/sdk"
 
 function App() {
   const [username, setUsername] = useState("")
@@ -16,9 +16,9 @@ function App() {
 
       console.log("user :", params.initData?.user)
 
-      console.log("the function itself : ", initDataUser)
-
       console.log("iniDataUSer :", initDataUser())
+
+      console.log("initData.user()", initData.user())
 
     }, []
   )
