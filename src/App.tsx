@@ -20,7 +20,7 @@ function App() {
     () => {
       console.log("is mounted : ", isMiniAppMounted(), "is supported :", isMiniAppSupported())
       const params = retrieveLaunchParams()
-      parseInitData(params.initData)
+      parseInitData(params.initDataRaw)
       setUsername(params.initData?.user?.username || "not found")
       setFirstName(params.initData?.user?.firstName || "not found")
       setPhotoUrl(params.initData?.user?.photoUrl || "not found")
