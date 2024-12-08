@@ -16,6 +16,8 @@ function App() {
 
       console.log("user :", params.initData?.user)
 
+      console.log("the function itself : ", initDataUser)
+
       console.log("iniDataUSer :", initDataUser())
 
     }, []
@@ -34,7 +36,7 @@ function App() {
 
   return (
     <div style={{ color: "white" }}>
-      <div>App - 4</div>
+      <div>App - 5</div>
       <button onClick={handleOpenPopup}>
         open the popup
       </button>
