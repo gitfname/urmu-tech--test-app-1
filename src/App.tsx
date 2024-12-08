@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { retrieveLaunchParams, openPopup, isMiniAppSupported, isMiniAppMounted, openTelegramLink, initDataUser, initData, initDataChat } from "@telegram-apps/sdk"
+import { retrieveLaunchParams, openPopup, isMiniAppSupported, isMiniAppMounted, openTelegramLink, initDataUser, initData, initDataChat, parseInitData } from "@telegram-apps/sdk"
 import { useLaunchParams } from "@telegram-apps/sdk-react"
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
     () => {
       console.log("is mounted : ", isMiniAppMounted(), "is supported :", isMiniAppSupported())
       const params = retrieveLaunchParams()
+      parseInitData(params.initData)
       setUsername(params.initData?.user?.username || "not found")
       setFirstName(params.initData?.user?.firstName || "not found")
       setPhotoUrl(params.initData?.user?.photoUrl || "not found")
@@ -48,7 +49,7 @@ function App() {
 
   return (
     <div style={{ color: "white" }}>
-      <div>App - 5</div>
+      <div>App - 6</div>
       <button onClick={handleOpenPopup}>
         open the popup
       </button>
