@@ -1,10 +1,20 @@
 import { useEffect, useState } from "react"
 import { retrieveLaunchParams, openPopup, isMiniAppSupported, isMiniAppMounted, openTelegramLink, initDataUser, initData } from "@telegram-apps/sdk"
+import { useLaunchParams } from "@telegram-apps/sdk-react"
 
 function App() {
   const [username, setUsername] = useState("")
   const [firstName, setFirstName] = useState("")
   const [photoUrl, setPhotoUrl] = useState("")
+  const lp = useLaunchParams()
+
+  useEffect(
+    () => {
+      console.log("---------------- lp ----------------")
+      console.log(lp)
+      console.log("END ---------------- lp ---------------- END")
+    }, [lp]
+  )
 
   useEffect(
     () => {
